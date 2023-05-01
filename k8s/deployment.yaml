@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leet-fetcher-deployment
+  labels:
+    app: leet-fetcher
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: leet-fetcher
+  template:
+    metadata:
+      labels:
+        app: leet-fetcher
+    spec:
+      containers:
+        - name: leet-fetcher
+          image: sagar28041999/leet-fetcher:1.0
+          ports:
+            - containerPort: 8080
